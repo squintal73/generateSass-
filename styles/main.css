@@ -1,0 +1,145 @@
+:root {
+  --text-color: #2b394d;
+  --bg-color: #fdfdfd;
+}
+
+[data-theme=dark] {
+  --text-color: #9aadc0;
+  --bg-color: #3c3947;
+}
+
+.sidebar {
+  background: #484b57;
+  color: #f3eeee;
+  width: 250px;
+  height: 100vh;
+  padding: 1rem;
+}
+.sidebar__menu {
+  margin-top: 2rem;
+}
+.sidebar__menu li {
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+.sidebar__menu li:hover {
+  color: #4361ee;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header__user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-cards {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+.dashboard-cards .card {
+  background: var(--bg-color);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  background: var(--bg-color);
+  transition: transform 0.3s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+}
+.dashboard-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.1);
+}
+.dashboard-cards .card__title {
+  color: var(--text-color);
+  font-size: 14px;
+}
+.dashboard-cards .card__value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4361ee;
+}
+.dashboard-cards .card--success .card__value {
+  color: #2ecc71;
+}
+
+.chart-section {
+  padding: 2rem;
+}
+
+.chart-container {
+  background: var(--bg-color);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: var(--text-color);
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+}
+h1 {
+  color: var(--text-color);
+}
+
+span {
+  color: var(--text-color);
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+.main-content {
+  padding: 1rem;
+  background: #f3eeee;
+  color: #484b57;
+}
+
+/*# sourceMappingURL=main.css.map */

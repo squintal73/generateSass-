@@ -1,0 +1,22 @@
+// Cores
+$primary: #4361ee;
+$success: #2ecc71;
+$dark: #484b57;
+$light: #f3eeee;
+
+// Espaçamentos
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+// Cores do tema
+:root {
+  --text-color: #2b394d;
+  --bg-color: #fdfdfd;
+}
+
+[data-theme="dark"] {
+  --text-color: #9aadc0;
+  --bg-color: #3c3947;
+}
+ 

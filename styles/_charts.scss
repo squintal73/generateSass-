@@ -1,0 +1,10 @@
+.chart-section {
+  padding: $spacing-lg;
+}
+
+.chart-container {
+  background: var(--bg-color);
+  border-radius: 8px;
+  padding: $spacing-md;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

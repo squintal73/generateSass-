@@ -1,0 +1,20 @@
+.sidebar {
+  background: $dark;
+  color: $light;
+  width: 250px;
+  height: 100vh;
+  padding: $spacing-md;
+
+  &__menu {
+    margin-top: $spacing-lg;
+
+    li {
+      padding: $spacing-sm 0;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

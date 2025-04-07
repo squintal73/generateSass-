@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard com Sass</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul class="sidebar__menu">
+        <li>Home</li>
+        <li>Relatórios</li>
+        <li>Configurações</li>
+      </ul>
+    </aside>
+
+    <div class="main-content">
+      <header class="header">
+        <h1>Olá, Admin!</h1>
+        <div class="header__actions">
+          <div class="theme-toggle" id="themeToggle"></div>
+          <div class="header__user">
+            <span>João Silva</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="dashboard-cards">
+        <div class="card">
+          <p class="card__title">Total de Vendas</p>
+          <p class="card__value">R$ 12,540</p>
+        </div>
+        <div class="card card--success">
+          <p class="card__title">Novos Usuários</p>
+          <p class="card__value">+ 124</p>
+        </div>
+      </section>
+
+      <section class="chart-section">
+        <div class="chart-container">
+          <canvas id="salesChart"></canvas>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      themeToggle.setAttribute('data-theme', newTheme);
+    });
+
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+        datasets: [{
+          label: 'Vendas 2023',
+          data: [12000, 19000, 15000, 18000, 21000, 24000],
+          borderColor: '#4361ee',
+          tension: 0.3,
+          fill: true,
+          backgroundColor: 'rgba(67, 97, 238, 0.1)',
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    function updateChartTheme() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+      const textColor = isDark ? '#f8f9fa' : '#1f2937';
+
+      salesChart.options.scales.x.grid.color = gridColor;
+      salesChart.options.scales.y.grid.color = gridColor;
+      salesChart.options.scales.x.ticks.color = textColor;
+      salesChart.options.scales.y.ticks.color = textColor;
+      salesChart.update();
+    }
+
+    themeToggle.addEventListener('click', updateChartTheme);
+  </script>
+</body>
+</html>
